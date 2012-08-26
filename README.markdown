@@ -26,7 +26,7 @@ More information and examples can be found here: [http://www.storiesinflight.com
 
 ### JavaScript ###
 
-	<script src="includes/videosub-0.9.9.js"></script>
+	<script src="includes/videosub.js"></script>
 
 ### HTML ###
 
