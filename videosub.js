@@ -100,7 +100,7 @@
 					'fontFamily': 'Helvetica, Arial, sans-serif',
 					'fontSize': fontsize+'px',
 					'fontWeight': 'bold',
-					'textShadow': '#000000 1px 1px 0px'
+					'textShadow': '-1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black'
 				});
 				$VIDEOSUB(subcontainer).addClass('videosubbar');
 				$VIDEOSUB(subcontainer).appendTo(videocontainer);
