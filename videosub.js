@@ -108,11 +108,11 @@
 				// called on AJAX load onComplete (to work around element reference issues)
 				el.update = function(req) { 
 					el.subtitles = new Array();
-					records = req.split('\n\n');
+					records = req.split('\n\r');
 					for (var r=0;r<records.length;r++) {
 						record = records[r];
 						el.subtitles[r] = new Array();
-						el.subtitles[r] = record.split('\n');
+						el.subtitles[r] = record.split('\r');
 					}
 				}
 					
