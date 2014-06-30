@@ -160,7 +160,9 @@
 						el.subcount++;
 					}
 					// update subtitle div	
-					this.nextSibling.innerHTML = subtitle;
+                    if(this.nextSibling.innerHTML != subtitle){
+                        this.nextSibling.innerHTML = subtitle;
+                    }
 				});
 
 			}
