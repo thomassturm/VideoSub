@@ -160,9 +160,25 @@
 						el.subcount++;
 					}
 					// update subtitle div	
-                    if(this.nextSibling.innerHTML != subtitle){
-                        this.nextSibling.innerHTML = subtitle;
-                    }
+          if(this.nextSibling.innerHTML != subtitle){
+              this.nextSibling.innerHTML = subtitle;
+
+              //create and dispatch a subtitlechanged event
+              if(window.CustomEvent){//only dispatch the event if the browser supports it
+                  var event = new CustomEvent("subtitlechanged",{
+                      detail:{
+                          target:this.nextSibling,//target div where the subtitle appears
+                          video:this,//video div
+                          content:subtitle,//content of the subtitle (subtitle text)
+                          atTime:this.currentTime,//timecode of the video at the moment of change
+                      },
+                      bubbles:true,
+                      cancelable:true
+                  });
+
+                  this.dispatchEvent(event);
+              }
+          }
 				});
 
 			}
