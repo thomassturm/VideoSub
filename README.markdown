@@ -20,6 +20,7 @@ More information and examples can be found here: [http://www.storiesinflight.com
 *  Works with common .SRT subtitle files (WebVTT support for older browsers is planned as soon as there are standards compliant tools to create WebVTT files)
 *  It will stay out of the way if the track tag references a subtitle file in the new WebVTT standard
 *  Supports seeking in the video
+*  Dispatches a 'subtitlechanged' event upon swapping out an old subtitle line with a new one
 
 
 ## Code ##
