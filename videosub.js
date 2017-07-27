@@ -153,7 +153,12 @@
 					var subtitle = '';
 					// check if the next subtitle is in the current time range
 					if (this.currentTime.toFixed(1) > videosub_timecode_min(el.subtitles[el.subcount][1])  &&  this.currentTime.toFixed(1) < videosub_timecode_max(el.subtitles[el.subcount][1])) {
-						subtitle = el.subtitles[el.subcount][2];
+						// a subtitle element countains metadata on the first
+						// two lines (index and timing information); we skip
+						// those two lines and display the rest
+						var full = el.subtitles[el.subcount];
+						var text = full.slice(2, full.length);
+						subtitle = text.join('<br>');
 					}
 					// is there a next timecode?
 					if (this.currentTime.toFixed(1) > videosub_timecode_max(el.subtitles[el.subcount][1])  && el.subcount < (el.subtitles.length-1)) {
