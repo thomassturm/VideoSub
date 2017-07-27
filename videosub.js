@@ -126,18 +126,8 @@
 	
 				el.subcount = 0;
 
-				// add event handler to be called when play button is pressed
-				$VIDEOSUB(el).addListener('play', function(an_event){
-					el.subcount = 0;
-				});
-
-				// add event handler to be called when video is done
-				$VIDEOSUB(el).addListener('ended', function(an_event){
-					el.subcount = 0;
-				});
-
-				// add event handler to be called when the video timecode has jumped
-				$VIDEOSUB(el).addListener('seeked', function(an_event){
+				// update position depending on user actions
+				function update_position(an_event){
 					el.subcount = 0;
 					while (videosub_timecode_max(el.subtitles[el.subcount][1]) < this.currentTime.toFixed(1)) {
 						el.subcount++;
@@ -146,7 +136,10 @@
 							break;
 						}
 					}
-				});
+				};
+				$VIDEOSUB(el).addListener('play', update_position);
+				$VIDEOSUB(el).addListener('ended', update_position);
+				$VIDEOSUB(el).addListener('seeked', update_position);
 
 				// add event handler to be called while video is playing
 				$VIDEOSUB(el).addListener('timeupdate', function(an_event){
